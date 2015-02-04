@@ -1,0 +1,20 @@
+Mosquito - freier MQTT Broker
+- easy 2 install
+
+
+- was ist das besondere
+- ganz viele Apps. 1 centraler Server auf push basis
+- 1 Google Pushservice (Nutzungsbedingungen, keine Kontrolle, irgendwann kostet was, privacy, end2End encrytion -key, tls etc)
+- MQTT laeuft auf jedem dedicated server
+- Fire and forget (QOS 0 ) (QOS 2 werden sicher die Nachrichten zugestellt)
+- beliebige Daten.
+- Platform unabhaengig , Implementierungen sind manigfaeltig vorhanden
+- ....
+
+- Wie verhaelt sich das unter Last
+- gibt es dieselben Probleme wie in der alten Topic / publish & subscribe Welt
+- Vergleich (ActiveMQ , SPDY , HTTP2.0)
+- Erklaerung der Code Schnipsel
+- KickItOut seit 5 Jahren evtl. Loesung fuer eine Pushservice
+- easy to setup Dev env within Android study due to eclipse maven repo
+- keine Notwendigkeit sich im Race Conditions , Synchronisation, Handler, CallBackHell.
