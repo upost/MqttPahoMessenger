@@ -19,6 +19,7 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MqttDefaultFilePersistence;
 
 
 public class MainActivity extends Activity implements View.OnClickListener, MqttCallback {
@@ -43,13 +44,14 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
     }
 
     private void connect() {
-        client = new MqttAndroidClient(this, MQTT_URI, CLIENT_NAME);
+        MqttDefaultFilePersistence mdfp = new MqttDefaultFilePersistence(getCacheDir().getAbsolutePath());
+        client = new MqttAndroidClient(this, MQTT_URI, CLIENT_NAME, mdfp);
         client.setCallback(this);
 
         try {
             MqttConnectOptions options = new MqttConnectOptions();
             options.setCleanSession(true);
-            options.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1);
+            options.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1_1);
             client.connect(options, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken iMqttToken) {
@@ -112,8 +114,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
     private void send(String text) {
         if(client==null || !client.isConnected()) {
-            Toast.makeText(this,"sorry, currently not connected, try again...",Toast.LENGTH_SHORT).show();
-            connect();
+            Toast.makeText(this,"sorry, currently not connected...",Toast.LENGTH_SHORT).show();
             return;
         }
         MqttMessage message = new MqttMessage(text.getBytes());
@@ -139,7 +140,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
     @Override
     public void connectionLost(Throwable throwable) {
         Toast.makeText(this,"connection lost",Toast.LENGTH_SHORT).show();
-        connect();
     }
 
     @Override
