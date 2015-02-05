@@ -18,3 +18,9 @@ Mosquito - freier MQTT Broker
 - KickItOut seit 5 Jahren evtl. Loesung fuer eine Pushservice
 - easy to setup Dev env within Android study due to eclipse maven repo
 - keine Notwendigkeit sich im Race Conditions , Synchronisation, Handler, CallBackHell.
+
+-- SERVER Side 
+- works with brokers wie ActiveMQ und Mosquito.
+- eigene Server seitige Anwendungen koennen Apache Camel benutzen. Hier gibt es auch eine MQTT component. 
+# http://camel.apache.org/mqtt.html
+
