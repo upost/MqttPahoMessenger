@@ -1,0 +1,60 @@
+MQTT on Android - 40 min talk by Marcus Schlechter and Uwe Post - Abstract
+
+- Introduction: What is MQTT?
+ + publisher/subscriber pattern
+ + Internet of Things
+ + using scalable broker on central server and any number of low end clients
+ + publish any type of data to a "topic" to a central broker
+ + clients subscribe to a topic and receive published data wherever they are
+ + last will
+ + retained messages
+ + client IDs
+ + works on unstable networks
+ + different brokers available including Mosquitto (Open Source) and Enterprise level solutions with high scalability
+ + client implementations available for nearly all platforms and languages including Android, raspberry pi, Arduino...
+- MQTT compared to Google Cloud Messaging, ActiveMQ, Spdy etc
+ + you are in control (privacy, terms of service, end-to-end encryption possible)
+ + easy setup of the broker (i.e. apt-get install mosquitto on Debian)
+ + low learning curve
+ + slim protocol
+ + ...
+- Eclipse Paho: MQTT clients also for Android
+ + How to use with Android Studio (using gradle and the eclipse maven repo)
+ + Simple showcase of a messenger app
+ + Code samples (async)
+ + Simple showcase using Android Wear (monitor your grandpa's heartbeat)
+ + Other applications ("Kick it out" multiplayer football manager, Apache Camel, FB messenger)
+- Q&A
+
+About us:
+Marcus Schlechter is ...
+Uwe Post wrote two Books for Android Developers and is lead game developer at Ludetis.
+
+
+
+Mosquitto - freier MQTT Broker
+- easy 2 install
+
+
+- was ist das besondere
+- ganz viele Apps. 1 centraler Server auf push basis
+- 1 Google Pushservice (Nutzungsbedingungen, keine Kontrolle, irgendwann kostet was, privacy, end2End encrytion -key, tls etc)
+- MQTT laeuft auf jedem dedicated server
+- Fire and forget (QOS 0 ) (QOS 2 werden sicher die Nachrichten zugestellt)
+- beliebige Daten.
+- Platform unabhaengig , Implementierungen sind manigfaeltig vorhanden
+- ....
+
+- Wie verhaelt sich das unter Last
+- gibt es dieselben Probleme wie in der alten Topic / publish & subscribe Welt
+- Vergleich (ActiveMQ , SPDY , HTTP2.0)
+- Erklaerung der Code Schnipsel
+- KickItOut seit 5 Jahren evtl. Loesung fuer eine Pushservice
+- easy to setup Dev env within Android study due to eclipse maven repo
+- keine Notwendigkeit sich im Race Conditions , Synchronisation, Handler, CallBackHell.
+
+-- SERVER Side 
+- works with brokers wie ActiveMQ und Mosquito.
+- eigene Server seitige Anwendungen koennen Apache Camel benutzen. Hier gibt es auch eine MQTT component. 
+# http://camel.apache.org/mqtt.html
+
