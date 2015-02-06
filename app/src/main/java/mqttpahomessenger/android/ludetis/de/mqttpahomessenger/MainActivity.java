@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,10 +36,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
         editText = (EditText) findViewById(R.id.message);
 
-        connect();
-
         findViewById(R.id.send).setOnClickListener(this);
     }
+
+
 
     private void connect() {
         MqttDefaultFilePersistence mdfp = new MqttDefaultFilePersistence(getCacheDir().getAbsolutePath());
@@ -92,7 +90,12 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
     protected void onResume() {
         super.onResume();
 
+        if (client == null || !client.isConnected()) {
+            connect();
+        }
     }
+
+
 
     @Override
     protected void onDestroy() {
