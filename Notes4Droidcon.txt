@@ -2,6 +2,8 @@ MQTT on Android - 40 min talk by Marcus Schlechter and Uwe Post - Abstract
 
 - Introduction: What is MQTT?
  + publisher/subscriber pattern
+ + fits on certain use cases where requeset response pattern is not the right choice
+ + battery savings 
  + Internet of Things
  + using scalable broker on central server and any number of low end clients
  + publish any type of data to a "topic" to a central broker
@@ -17,23 +19,26 @@ MQTT on Android - 40 min talk by Marcus Schlechter and Uwe Post - Abstract
  + easy setup of the broker (i.e. apt-get install mosquitto on Debian)
  + low learning curve
  + slim protocol
- + ...
+ + spdy / quic / http2.0 are still not final. Need to have dedicated apache server, thus more complex to maintain.
+ + easy to integrate within apache camel component already available. (works with mosquito / activeMQ)
 - Eclipse Paho: MQTT clients also for Android
  + How to use with Android Studio (using gradle and the eclipse maven repo)
  + Simple showcase of a messenger app
  + Code samples (async)
  + Simple showcase using Android Wear (monitor your grandpa's heartbeat)
- + Other applications ("Kick it out" multiplayer football manager, Apache Camel, FB messenger)
+ + together with locationupdates interessting use cases/
+ + Other applications ("Kick it out" multiplayer football manager,  FB messenger)
 - Q&A
 
 About us:
-Marcus Schlechter is ...
+Marcus Schlechter is technical architect, reviewer of Uwe Post's litrature and companion on poc and prototypes 
 Uwe Post wrote two Books for Android Developers and is lead game developer at Ludetis.
 
 
 
 Mosquitto - freier MQTT Broker
 - easy 2 install
+- integrierbar in apache camel, einfache dsl (EIP)
 
 
 - was ist das besondere
@@ -47,7 +52,7 @@ Mosquitto - freier MQTT Broker
 
 - Wie verhaelt sich das unter Last
 - gibt es dieselben Probleme wie in der alten Topic / publish & subscribe Welt
-- Vergleich (ActiveMQ , SPDY , HTTP2.0)
+- Vergleich (QUIC, SPDY , HTTP2.0)
 - Erklaerung der Code Schnipsel
 - KickItOut seit 5 Jahren evtl. Loesung fuer eine Pushservice
 - easy to setup Dev env within Android study due to eclipse maven repo
