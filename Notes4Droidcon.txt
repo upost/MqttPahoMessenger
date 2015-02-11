@@ -1,5 +1,23 @@
 MQTT on Android - 40 min talk by Marcus Schlechter and Uwe Post - Abstract
 
+The presentation is all about how to implement and use the publish/subscribe pattern within the mobile world using MQTT.
+The main objective of this presentation is to dive into the approach for certain use cases to use the MQTT Protocol
+within android applications and show how this technology has its strength bridge and evolves the internet of things.
+What is the novelty and what is the specialty about this Protocol.
+
+Within this presentation the audience will be introduced to MQTT with basic key facts, where it has its origin, where it could
+be the better choice instead of using the well known and commonly used request/response pattern.
+How easy it is to setup your own broker, what other serverside frameworks like apache camel can be used. Bringing the essential benefit instead
+of
+Further more terms like "broker, last will, retained messages, client IDS , stable on unstable networks, control on privacy, fire and forget "
+will be explained with simple dive in examples to the listener.
+Both sides of the story,server side and client side, will be explained by a practical android showcase.
+
+Brief forecast what will be in the future and what can be done know , how to setup mosquito or using ActiveMQ with apache camel.
+
+
+
+
 - Introduction: What is MQTT?
  + publisher/subscriber pattern
  + Internet of Things
