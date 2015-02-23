@@ -1,19 +1,20 @@
 MQTT on Android - 40 min talk by Marcus Schlechter and Uwe Post - Abstract
 
-The presentation is all about how to implement and use the publish/subscribe pattern within the mobile world using MQTT.
+The presentation is all about MQTT, how to implement and use the publish/subscribe pattern within the mobile world . 
+The main focused audience are developers who recently rely on the request response paradigm for their realtime use cases.
+
 The main objective of this presentation is to dive into the approach for certain use cases to use the MQTT Protocol
 within android applications and show how this technology has its strength bridge and evolves the internet of things.
-What is the novelty and what is the specialty about this Protocol.
+Furthermore the audience is guided whats the novelty and what is the specialty about this Protocol.
 
-Within this presentation the audience will be introduced to MQTT with basic key facts, where it has its origin, where it could
-be the better choice instead of using the well known and commonly used request/response pattern.
-How easy it is to setup your own broker, what other serverside frameworks like apache camel can be used. Bringing the essential benefit instead
-of
+Within this presentation the audience will be introduced to the basic key facts about MQTT, where it has its origin, 
+where it could be the better choice instead of using the well known and commonly used request/response pattern.
+The speaker will show the simplicity of how to setup your own broker, what other serverside frameworks like apache camel can be used. Bringing the essential benefit in terms full controll of the publish and subscribe communication flow.
 Further more terms like "broker, last will, retained messages, client IDS , stable on unstable networks, control on privacy, fire and forget "
-will be explained with simple dive in examples to the listener.
+will be explained with a simple dive in examples to the audience.
 Both sides of the story,server side and client side, will be explained by a practical android showcase.
 
-Brief forecast what will be in the future and what can be done know , how to setup mosquito or using ActiveMQ with apache camel.
+At last a Brief forecast will be given, what will be in the future and what can be done now , how to setup mosquito or using ActiveMQ with e.g apache camel.
 
 
 
