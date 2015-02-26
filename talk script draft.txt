@@ -1,0 +1,11 @@
+Talk script draft
+
+1. wer sind wir
+2. was ist MQTT (Observer-Pattern)
+3. Vergleich mit anderen Lösungen
+4. Mosquitto-Broker
+5. Android-Client, Paho
+6. Beispielcode aus unserer Demo
+7. Weitere Anwendungsfälle
+8. Zusammenfassung, Link zum github-Projekt
+9. Q&A
