@@ -22,6 +22,7 @@ import org.eclipse.paho.client.mqttv3.persist.MqttDefaultFilePersistence;
 
 public class MainActivity extends Activity implements View.OnClickListener, MqttCallback {
 
+
     private static final String MQTT_URI = "tcp://h8.ludetis-spiele.de:1883";
     private static final String CLIENT_NAME = Build.DEVICE;
     private static final String MQTT_TOPIC = "mqttpahomessenger";
