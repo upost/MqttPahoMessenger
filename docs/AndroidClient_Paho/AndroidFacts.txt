@@ -20,3 +20,10 @@ Keep a live : avoid this where it is possible
 
   -> wake locks a greedy, once taken , they will be taken forever by the application
         adb shell dumpsys # gives you an idea what is happening on the phone
+
+  -> AlarmManager could be an approach for your own keep alive approach,
+  -> Netflix JavaRX Client library could also be an approach. Thus functional approaches outside of
+     Android and current Java SDK's unless Java8 are dealing those things more smart. Here we can
+     handle the callback hell , e.g to have a long keep alive interval you might end in an unwanted
+     connection lost scenario.
+
