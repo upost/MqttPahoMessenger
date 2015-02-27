@@ -9,6 +9,34 @@ http://www-01.ibm.com/support/knowledgecenter/SS9D84_1.0.0/com.ibm.mm.tc.doc/tc0
 - extremly lightweight
 - extreme suitable for low bandwith and or low bandwith, ocassional dialup connections ( which is
 occassionally even a characteristics of mobile networks
+
 - small code footprints
 - has a telemetry backround, collecting data from sensors
 - Facebook messanger uses MQTT
+- last will approach
+- 3 QoS , max 1 , min 1, exactly 1
+- possible fire and forget or reliable communication
+
+- MQTT available for Android, Web (via e.g Websocket), arduino (SoC) , IOS , Internet of Things approach all
+  M2M UC based on TCP / IP or using MQTT-S for non TCP/IP Networks
+
+- Server Facts : Eclipse Paho , ActiveMQ (http://stackoverflow.com/questions/18632968/mqtt-android-not-connecting-to-activemq?rq=1)
+
+detailed facts
+-> Based on TCP/IP but for non TCP IP Networks MQTT-S implementation available. (more detailed UC later on)
+-> Header only fixed 2 Bytes long, reduces administration overhead
+-> Fire and Forget / Last Will Statement
+    + LastWillStatement (LWT) not gone offline concern but what happens after a client has gone offline. Care of gone of line
+      the keep alive message is appropriate
+      Instead of just closing the connection after a client has gone offline,
+      LWT messages can be leveraged to define a message to be published by the broker on behalf of the client,
+      since the client is offline and cannot publish anymore
+
+-> QoS Level Description
+    + max 1 transfer try : brings best possible transfer in unstable Networks. Message loss possible
+                           Suitable for massive sensor data where one lost message does not harm the
+                           communication flow (geo data)
+    + min 1 transfer try : reliable transfer of the message. Could be delivered twice
+
+    + exact 1 transfertry: for UC where a unique delivery is essential.
+
