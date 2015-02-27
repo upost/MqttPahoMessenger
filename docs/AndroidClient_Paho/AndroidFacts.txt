@@ -1,0 +1,22 @@
+Android Tech Facts & Dev guidelines
+
+-Don’t put any of the MQTT stuff into your Activity. Because it will be killed soon, without much warning.
+It doesn’t matter if you kick off background threads as they’ll be killed off, too
+
+- put all MQTT Actions into a Service
+    <code snippet here>
+    -> in terms of longer tcp connections by the MQTTClient Object
+    -> set START_STICKY to guarantee a reliable service restart
+
+Persistent Connection
+- Android battery savings mechanism does not harm right on time message receiving. Your application
+  wakes up even in sleep mode by incoming message, although the MTTQClient object is handling the
+  long running tcp/ip connection.
+
+Keep a live : avoid this where it is possible
+- Use Wake_Lock to avoid battery consuming keep alive handshakes between server and client
+  Using the PARTIAL_WAKE_LOCK the MQTTClient backround thread will kept up. On applications where
+  battery consumption comes to an issue, try to avoid this. Harms the battery lifetime !
+
+  -> wake locks a greedy, once taken , they will be taken forever by the application
+        adb shell dumpsys # gives you an idea what is happening on the phone

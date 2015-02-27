@@ -25,6 +25,7 @@ occassionally even a characteristics of mobile networks
 detailed facts
 -> Based on TCP/IP but for non TCP IP Networks MQTT-S implementation available. (more detailed UC later on)
 -> Header only fixed 2 Bytes long, reduces administration overhead
+
 -> Fire and Forget / Last Will Statement
     + LastWillStatement (LWT) not gone offline concern but what happens after a client has gone offline. Care of gone of line
       the keep alive message is appropriate
