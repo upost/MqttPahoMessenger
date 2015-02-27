@@ -1,0 +1,14 @@
+MQTT :
+
+Links to explore
+https://www.ibm.com/developerworks/mydeveloperworks/blogs/aimsupport/entry/what_is_mqtt_and_how_does_it_work_with_websphere_mq?lang=en
+http://www-01.ibm.com/support/knowledgecenter/SS9D84_1.0.0/com.ibm.mm.tc.doc/tc00000_.htm?cp=SS9D84_1.0.0%2F1-0&lang=de
+
+
+- Mesage Queuing Telemetry Transport
+- extremly lightweight
+- extreme suitable for low bandwith and or low bandwith, ocassional dialup connections ( which is
+occassionally even a characteristics of mobile networks
+- small code footprints
+- has a telemetry backround, collecting data from sensors
+- Facebook messanger uses MQTT
