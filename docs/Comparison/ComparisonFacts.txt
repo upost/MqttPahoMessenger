@@ -1,3 +1,6 @@
 Comparison Facts
 
 What is similar to publish and subscribe!
+
+https://github.com/hivemq
+http://activemq.apache.org/apollo/documentation/mqtt-manual.html
