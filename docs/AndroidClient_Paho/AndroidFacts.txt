@@ -5,6 +5,16 @@ It doesn’t matter if you kick off background threads as they’ll be killed of
 
 - put all MQTT Actions into a Service
     <code snippet here>
+
+    1. create necessary entries in the AndroidManifest.xml
+    <service android:name="org.eclipse.paho.android.service.MqttService" >
+    </service>
+
+    #as we connect via the internet grant the appropriate permission by setting appropriatly
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    2.
+
     -> in terms of longer tcp connections by the MQTTClient Object
     -> set START_STICKY to guarantee a reliable service restart
 
@@ -27,3 +37,4 @@ Keep a live : avoid this where it is possible
      handle the callback hell , e.g to have a long keep alive interval you might end in an unwanted
      connection lost scenario.
 
+@TODO
