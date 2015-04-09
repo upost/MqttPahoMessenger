@@ -25,16 +25,18 @@ android {
 
 repositories {
     maven {
-        url "https://repo.eclipse.org/content/repositories/paho"
+        url "https://repo.eclipse.org/content/repositories/paho-snapshots/"
     }
 }
 
 dependencies {
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile ('com.android.support:appcompat-v7:21.0.3')
-    //compile ('org.eclipse.paho:org.eclipse.paho.mqtt.utility:1.0.1')
-    compile ('org.eclipse.paho:org.eclipse.paho.android.service:1.0.1-SNAPSHOT')
-            {
-                exclude module: 'support-v4'
-            }
+    //    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
+ //   compile('org.eclipse.paho:org.eclipse.paho.mqtt.utility:1.0.3-SNAPSHOT')
+    compile('org.eclipse.paho:org.eclipse.paho.android.service:1.0.3-SNAPSHOT') {
+        exclude module: 'support-v4'
+    }
+//        compile(group: 'org.eclipse.paho', name: 'org.eclipse.paho.android.service', version: '1.0.3-SNAPSHOT') {
+//            exclude module: 'support-v4'
+//        }
 }

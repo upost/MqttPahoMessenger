@@ -23,9 +23,11 @@ import org.eclipse.paho.client.mqttv3.persist.MqttDefaultFilePersistence;
 public class MainActivity extends Activity implements View.OnClickListener, MqttCallback {
 
 
-    private static final String MQTT_URI = "tcp://h8.ludetis-spiele.de:1883";
+    //  private static final String MQTT_URI = "tcp://h8.ludetis-spiele.de:1883";
+    private static final String MQTT_URI = "tcp://msggwt1.service.deutschebahn.com:1860";
     private static final String CLIENT_NAME = Build.DEVICE;
-    private static final String MQTT_TOPIC = "mqttpahomessenger";
+    //   private static final String MQTT_TOPIC = "mqttpahomessenger";
+    private static final String MQTT_TOPIC = "HACKER/";
     private static final int QOS = 2;
     private MqttAndroidClient client;
     private EditText editText;
@@ -39,7 +41,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
         findViewById(R.id.send).setOnClickListener(this);
     }
-
 
 
     private void connect() {
@@ -60,11 +61,11 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
                 @Override
                 public void onFailure(IMqttToken iMqttToken, Throwable throwable) {
-                    Toast.makeText(MainActivity.this,"failed to connect: " + throwable.getMessage(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "failed to connect: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (MqttException e) {
-            Toast.makeText(this,"could not connect to MQTT broker at " + MQTT_URI,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "could not connect to MQTT broker at " + MQTT_URI, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -83,7 +84,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
             });
 
         } catch (MqttException e) {
-            Toast.makeText(this,"could not subscribe",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "could not subscribe", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -97,61 +98,60 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
     }
 
 
-
     @Override
     protected void onDestroy() {
         try {
             client.disconnect();
         } catch (MqttException e) {
-            Toast.makeText(this,"could not disconnect from MQTT broker at " + MQTT_URI,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "could not disconnect from MQTT broker at " + MQTT_URI, Toast.LENGTH_SHORT).show();
         }
         super.onDestroy();
     }
 
     @Override
     public void onClick(View view) {
-        if(view.getId()==R.id.send) {
-            send( "<b>"+CLIENT_NAME+"</b>: " + editText.getText().toString()+"<br/>");
+        if (view.getId() == R.id.send) {
+            send("<b>" + CLIENT_NAME + "</b>: " + editText.getText().toString() + "<br/>");
             editText.setText("");
         }
     }
 
     private void send(String text) {
-        if(client==null || !client.isConnected()) {
-            Toast.makeText(this,"sorry, currently not connected...",Toast.LENGTH_SHORT).show();
+        if (client == null || !client.isConnected()) {
+            Toast.makeText(this, "sorry, currently not connected...", Toast.LENGTH_SHORT).show();
             return;
         }
         MqttMessage message = new MqttMessage(text.getBytes());
         message.setQos(QOS);
         try {
-            client.publish(MQTT_TOPIC,message,null,new IMqttActionListener() {
+            client.publish(MQTT_TOPIC, message, null, new IMqttActionListener() {
 
                 @Override
                 public void onSuccess(IMqttToken iMqttToken) {
-                    Toast.makeText(MainActivity.this,"message sent",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "message sent", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onFailure(IMqttToken iMqttToken, Throwable throwable) {
-                    Toast.makeText(MainActivity.this,"failed to send message: " + throwable.getMessage(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "failed to send message: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (MqttException e) {
-            Toast.makeText(this,"could not send message to MQTT broker",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "could not send message to MQTT broker", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void connectionLost(Throwable throwable) {
-        Toast.makeText(this,"connection lost",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "connection lost", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
-        Toast.makeText(this,"message received: " + s,Toast.LENGTH_SHORT).show();
-        TextView tv = (TextView)findViewById(R.id.chat);
-        String text = (String)tv.getTag();
-        if(text==null) text="";
+        Toast.makeText(this, "message received: " + s, Toast.LENGTH_SHORT).show();
+        TextView tv = (TextView) findViewById(R.id.chat);
+        String text = (String) tv.getTag();
+        if (text == null) text = "";
         text += mqttMessage.toString();
         tv.setTag(text);
         tv.setText(Html.fromHtml(text));
@@ -160,6 +160,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
     @Override
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
-        Toast.makeText(this,"delivery complete",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "delivery complete", Toast.LENGTH_SHORT).show();
     }
 }
