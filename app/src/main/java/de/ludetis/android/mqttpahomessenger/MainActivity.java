@@ -1,4 +1,4 @@
-package mqttpahomessenger.android.ludetis.de.mqttpahomessenger;
+package de.ludetis.android.mqttpahomessenger;
 
 import android.app.Activity;
 import android.os.Build;
@@ -23,11 +23,11 @@ import org.eclipse.paho.client.mqttv3.persist.MqttDefaultFilePersistence;
 public class MainActivity extends Activity implements View.OnClickListener, MqttCallback {
 
 
-    //  private static final String MQTT_URI = "tcp://h8.ludetis-spiele.de:1883";
-    private static final String MQTT_URI = "tcp://msggwt1.service.deutschebahn.com:1860";
+    private static final String MQTT_URI = "tcp://h8.ludetis-spiele.de:1883";
+    //private static final String MQTT_URI = "tcp://msggwt1.service.deutschebahn.com:1860";
     private static final String CLIENT_NAME = Build.DEVICE;
-    //   private static final String MQTT_TOPIC = "mqttpahomessenger";
-    private static final String MQTT_TOPIC = "HACKER/";
+    private static final String MQTT_TOPIC = "mqttpahomessenger";
+    //private static final String MQTT_TOPIC = "HACKER/";
     private static final int QOS = 2;
     private MqttAndroidClient client;
     private EditText editText;
@@ -50,7 +50,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
         try {
             MqttConnectOptions options = new MqttConnectOptions();
-            options.setCleanSession(true);
+            options.setCleanSession(true); // makes sure messages are stored while we are offline
             options.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1_1);
             client.connect(options, new IMqttActionListener() {
                 @Override
