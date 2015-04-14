@@ -1,4 +1,4 @@
-package mqttpahomessenger.android.ludetis.de.mqttpahomessenger;
+package de.ludetis.android.mqttpahomessenger;
 
 
 import android.app.Service;

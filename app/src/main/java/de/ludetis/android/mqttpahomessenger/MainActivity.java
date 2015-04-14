@@ -148,7 +148,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
     @Override
     public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
-        Toast.makeText(this, "message received: " + s, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "message received on topic " + s, Toast.LENGTH_SHORT).show();
         TextView tv = (TextView) findViewById(R.id.chat);
         String text = (String) tv.getTag();
         if (text == null) text = "";
