@@ -24,10 +24,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
 
     private static final String MQTT_URI = "tcp://h8.ludetis-spiele.de:1883";
-    //private static final String MQTT_URI = "tcp://msggwt1.service.deutschebahn.com:1860";
     private static final String CLIENT_NAME = Build.DEVICE;
     private static final String MQTT_TOPIC = "mqttpahomessenger";
-    //private static final String MQTT_TOPIC = "HACKER/";
     private static final int QOS = 2;
     private MqttAndroidClient client;
     private EditText editText;
