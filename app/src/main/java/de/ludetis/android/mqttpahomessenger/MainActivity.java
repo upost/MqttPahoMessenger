@@ -48,7 +48,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
         try {
             MqttConnectOptions options = new MqttConnectOptions();
-            options.setCleanSession(true); // makes sure messages are stored while we are offline
+            options.setCleanSession(true); // makes sure subscriptions are cleared. Otherwise we could have duplicates.
             options.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1_1);
             client.connect(options, new IMqttActionListener() {
                 @Override
@@ -96,15 +96,15 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
     }
 
 
-    @Override
-    protected void onDestroy() {
-        try {
-            client.disconnect();
-        } catch (MqttException e) {
-            Toast.makeText(this, "could not disconnect from MQTT broker at " + MQTT_URI, Toast.LENGTH_SHORT).show();
-        }
-        super.onDestroy();
-    }
+//    @Override
+//    protected void onDestroy() {
+//        try {
+//            client.disconnect();
+//        } catch (MqttException e) {
+//            Toast.makeText(this, "could not disconnect from MQTT broker at " + MQTT_URI, Toast.LENGTH_SHORT).show();
+//        }
+//        super.onDestroy();
+//    }
 
     @Override
     public void onClick(View view) {
