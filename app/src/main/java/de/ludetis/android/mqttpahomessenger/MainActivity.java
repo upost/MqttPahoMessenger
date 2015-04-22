@@ -17,15 +17,12 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.persist.MqttDefaultFilePersistence;
-
 
 public class MainActivity extends Activity implements View.OnClickListener, MqttCallback {
 
-
     private static final String MQTT_URI = "tcp://h8.ludetis-spiele.de:1883";
     private static final String CLIENT_NAME = Build.DEVICE;
-    private static final String MQTT_TOPIC = "mqttpahomessenger";
+    private static final String MQTT_TOPIC = "mqttmessenger";
     private static final int QOS = 2;
     private MqttAndroidClient client;
     private EditText editText;
@@ -42,7 +39,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
 
     private void connect() {
-        client = new MqttAndroidClient(this, MQTT_URI, CLIENT_NAME, new MqttDefaultFilePersistence(getCacheDir().getAbsolutePath()));
+        client = new MqttAndroidClient(this, MQTT_URI, CLIENT_NAME);
         client.setCallback(this);
 
         try {
@@ -93,17 +90,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
             connect();
         }
     }
-
-
-//    @Override
-//    protected void onDestroy() {
-//        try {
-//            client.disconnect();
-//        } catch (MqttException e) {
-//            Toast.makeText(this, "could not disconnect from MQTT broker at " + MQTT_URI, Toast.LENGTH_SHORT).show();
-//        }
-//        super.onDestroy();
-//    }
 
     @Override
     public void onClick(View view) {
