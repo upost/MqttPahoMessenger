@@ -42,8 +42,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
 
     private void connect() {
-        MqttDefaultFilePersistence mdfp = new MqttDefaultFilePersistence(getCacheDir().getAbsolutePath());
-        client = new MqttAndroidClient(this, MQTT_URI, CLIENT_NAME, mdfp);
+        client = new MqttAndroidClient(this, MQTT_URI, CLIENT_NAME, new MqttDefaultFilePersistence(getCacheDir().getAbsolutePath()));
         client.setCallback(this);
 
         try {
