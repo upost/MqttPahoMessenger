@@ -20,7 +20,8 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 public class MainActivity extends Activity implements View.OnClickListener, MqttCallback {
 
-    private static final String MQTT_URI = "tcp://h8.ludetis-spiele.de:1883";
+    //  Enter the IP or servername of a working MQTT broker (like Mosquitto) here
+    private static final String MQTT_URI = "tcp://192.168.188.30:1883";
     private static final String CLIENT_NAME = Build.DEVICE;
     private static final String MQTT_TOPIC = "mqttmessenger";
     private static final int QOS = 2;
