@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,9 +22,9 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public class MainActivity extends Activity implements View.OnClickListener, MqttCallback {
 
     //  Enter the IP or servername of a working MQTT broker (like Mosquitto) here
-    private static final String MQTT_URI = "tcp://192.168.188.30:1883";
+    private static final String MQTT_URI = "tcp://mqtt.eclipse.org:1883";
     private static final String CLIENT_NAME = Build.DEVICE;
-    private static final String MQTT_TOPIC = "mqttmessenger";
+    private static final String MQTT_TOPIC = "mqttmessenger_testing";
     private static final int QOS = 2;
     private MqttAndroidClient client;
     private EditText editText;
@@ -56,10 +57,13 @@ public class MainActivity extends Activity implements View.OnClickListener, Mqtt
 
                 @Override
                 public void onFailure(IMqttToken iMqttToken, Throwable throwable) {
+                    Log.e(getClass().getSimpleName(),"exception",throwable);
+                    throwable.printStackTrace();
                     Toast.makeText(MainActivity.this, "failed to connect: " + throwable.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (MqttException e) {
+            Log.e(getClass().getSimpleName(),"exception",e);
             Toast.makeText(this, "could not connect to MQTT broker at " + MQTT_URI, Toast.LENGTH_SHORT).show();
         }
     }
